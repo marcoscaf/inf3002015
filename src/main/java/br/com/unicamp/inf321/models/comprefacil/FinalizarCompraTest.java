@@ -1,15 +1,15 @@
-package br.com.unicamp.inf321;
+package br.com.unicamp.inf321.models.comprefacil;
 
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.unicamp.inf321.FinalizarCompra;
+import br.com.unicamp.inf321.FinalizarCompraSHARED;
 
-@GraphWalker(value = "random(edge_coverage(100))", start = "e_init")
+
 public class FinalizarCompraTest extends ExecutionContext implements
-		FinalizarCompra {
+		FinalizarCompraSHARED {
 	
 	static WebDriver driver;
 
@@ -67,12 +67,6 @@ public class FinalizarCompraTest extends ExecutionContext implements
 	public void v_dadosPagamento() {
 		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina09.html");
 		System.out.println("Running: v_dadosPagamento");
-	}
-
-	@Override
-	public void e_init() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina06.html");
-		System.out.println("Running: e_init");
 	}
 
 	@Override
