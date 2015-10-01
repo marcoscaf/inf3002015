@@ -5,11 +5,11 @@ import org.graphwalker.java.annotation.GraphWalker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.unicamp.inf321.BuscarProduto;
+import br.com.unicamp.inf321.BuscarProdutoSHARED;
 
 @GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
 public class BuscarProdutoTest extends ExecutionContext implements
-		BuscarProduto {
+		BuscarProdutoSHARED {
 
 	static WebDriver driver;
 
@@ -41,12 +41,6 @@ public class BuscarProdutoTest extends ExecutionContext implements
 
 	}
 
-	@Override
-	public void e_retornarPesquisa() {
-
-		System.out.println("e_retornarPesquisa");
-
-	}
 
 	@Override
 	public void e_ProdutoNaoEncontrado() {
@@ -73,7 +67,7 @@ public class BuscarProdutoTest extends ExecutionContext implements
 	}
 
 	@Override
-	public void v_MostrarDetalhes() {
+	public void v_ExibicaoResultadoBusca() {
 		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina04.html");
 		System.out.println("v_MostrarDetalhes");
 
@@ -102,6 +96,11 @@ public class BuscarProdutoTest extends ExecutionContext implements
 	public void e_MostrarDetalhes() {
 		System.out.println("e_MostrarDetalhes");
 
+	}
+
+	@Override
+	public void e_retornarPesquisa() {
+		System.out.println("e_retornarPesquisa");
 	}
 
 }

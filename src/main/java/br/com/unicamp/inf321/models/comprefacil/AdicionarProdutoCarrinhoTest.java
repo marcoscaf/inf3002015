@@ -4,10 +4,10 @@ import org.graphwalker.core.machine.ExecutionContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.com.unicamp.inf321.AdicionarProdutoCarrinho;
+import br.com.unicamp.inf321.AdicionarProdutoCarrinhoSHARED;
 
 public class AdicionarProdutoCarrinhoTest extends ExecutionContext implements
-		AdicionarProdutoCarrinho {
+		AdicionarProdutoCarrinhoSHARED {
 
 	static WebDriver driver;
 
@@ -55,16 +55,16 @@ public class AdicionarProdutoCarrinhoTest extends ExecutionContext implements
 	}
 
 	@Override
-	public void v_exibicaoResultadoBusca() {
+	public void v_ExibicaoResultadoBusca() {
 		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina03.html");
 		
 		System.out.println("Running: v_exibicaoResultadoCarrinho");
 	}
 
-	@Override
-	public void e_init() {
-		System.out.println("Running: e_init");
-	}
+//	@Override
+//	public void e_init() {
+//		System.out.println("Running: e_init");
+//	}
 
 	@Override
 	public void e_validarNovaQtdDisponivel() {

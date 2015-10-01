@@ -19,13 +19,14 @@ import org.junit.rules.TestName;
 import br.com.unicamp.inf321.helper.GraphWalkerTestBuilder;
 import br.com.unicamp.inf321.helper.Helper;
 import br.com.unicamp.inf321.models.comprefacil.AdicionarProdutoCarrinhoTest;
+import br.com.unicamp.inf321.models.comprefacil.BuscarProdutoTest;
 import br.com.unicamp.inf321.observers.GraphStreamObserver;
 
 
 public class CompreFacilTestRun {
 
-	public final static Path MODEL_PATH_1 = Paths.get("/br/com/unicamp/inf321/BuscarProduto.graphml");
-	public final static Path MODEL_PATH_2 = Paths.get("/br/com/unicamp/inf321/AdicionarProdutoCarrinho.graphml");
+	public final static Path MODEL_PATH_1 = Paths.get("/br/com/unicamp/inf321/BuscarProdutoSHARED.graphml");
+	public final static Path MODEL_PATH_2 = Paths.get("/br/com/unicamp/inf321/AdicionarProdutoCarrinhoSHARED.graphml");
 	public final static Path MODEL_PATH_3 = Paths.get("/br/com/unicamp/inf321/FinalizarCompra.graphml");
 	
 	@Rule
@@ -49,7 +50,7 @@ public class CompreFacilTestRun {
 	@Test
 	public void runFunctionalTest() {
 		Result result = new GraphWalkerTestBuilder()
-//				.addModel(MODEL_PATH_1, new BuscarProdutoTest().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
+				.addModel(MODEL_PATH_1, new BuscarProdutoTest().setPathGenerator(new RandomPath(new EdgeCoverage(100))))
 				.addModel(MODEL_PATH_2, new AdicionarProdutoCarrinhoTest().setPathGenerator(new RandomPath(new EdgeCoverage(100))))
 //				.addModel(MODEL_PATH_3, new Veterinariens().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
 //				.addModel(MODEL_PATH_4, new OwnerInformation().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
