@@ -17,13 +17,10 @@ import br.com.unicamp.inf321.helper.Helper;
 @GraphWalker(value = "random(edge_coverage(100))")
 public class Veterinariens extends ExecutionContext implements VeterinariensSharedState {
 	
-	
-
     @Override
     public void e_Search() {
         Helper.WaitForElement(By.cssSelector("input[type=\"search\"]")).clear();
         Helper.WaitForElement(By.cssSelector("input[type=\"search\"]")).sendKeys("helen");
-
     }
 
     @Override
