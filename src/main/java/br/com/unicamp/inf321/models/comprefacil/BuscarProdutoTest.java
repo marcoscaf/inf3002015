@@ -6,29 +6,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.unicamp.inf321.BuscarProdutoSHARED;
+import br.com.unicamp.inf321.utils.WebDriveUtils;
 
 @GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
 public class BuscarProdutoTest extends ExecutionContext implements
 		BuscarProdutoSHARED {
 
-	static WebDriver driver;
-
-	static {
-		driver = new FirefoxDriver();
-	}
-
 	@Override
 	public void v_PesquisarProduto() {
 
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina02.html");
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina03.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina02.html");
+	
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina03.html");
 		
 		System.out.println("v_PesquisarProduto");
 
@@ -68,7 +57,7 @@ public class BuscarProdutoTest extends ExecutionContext implements
 
 	@Override
 	public void v_ExibicaoResultadoBusca() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina04.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina04.html");
 		System.out.println("v_MostrarDetalhes");
 
 	}
@@ -87,7 +76,7 @@ public class BuscarProdutoTest extends ExecutionContext implements
 
 	@Override
 	public void e_Init() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina01.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina01.html");
 		System.out.println("e_Init");
 
 	}

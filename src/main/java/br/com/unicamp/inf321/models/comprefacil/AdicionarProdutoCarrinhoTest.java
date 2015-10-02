@@ -5,19 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.unicamp.inf321.AdicionarProdutoCarrinhoSHARED;
+import br.com.unicamp.inf321.utils.WebDriveUtils;
 
 public class AdicionarProdutoCarrinhoTest extends ExecutionContext implements
 		AdicionarProdutoCarrinhoSHARED {
-
-	static WebDriver driver;
-
-	static {
-		driver = new FirefoxDriver();
-	}
 	
 	@Override
 	public void v_adicaoNovoProduto() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina04.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina04.html");
 		
 		System.out.println("Running: v_adicaoNovoProduto");
 	}
@@ -56,7 +51,7 @@ public class AdicionarProdutoCarrinhoTest extends ExecutionContext implements
 
 	@Override
 	public void v_ExibicaoResultadoBusca() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina03.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina03.html");
 		
 		System.out.println("Running: v_exibicaoResultadoCarrinho");
 	}
@@ -83,7 +78,7 @@ public class AdicionarProdutoCarrinhoTest extends ExecutionContext implements
 
 	@Override
 	public void v_exibicaoEstadoCarrinho() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina05.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina05.html");
 		
 		System.out.println("Running: v_exibicaoEstadoCarrinho");
 	}

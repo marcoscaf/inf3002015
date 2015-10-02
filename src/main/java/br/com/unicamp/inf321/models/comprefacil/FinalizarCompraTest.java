@@ -6,16 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.unicamp.inf321.FinalizarCompraSHARED;
+import br.com.unicamp.inf321.utils.WebDriveUtils;
 
 
 public class FinalizarCompraTest extends ExecutionContext implements
 		FinalizarCompraSHARED {
-	
-	static WebDriver driver;
-
-	static {
-		driver = new FirefoxDriver();
-	}
 
 	@Override
 	public void e_retornaCarrinhoVazio() {
@@ -34,7 +29,7 @@ public class FinalizarCompraTest extends ExecutionContext implements
 
 	@Override
 	public void v_carrinho() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina06.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina06.html");
 		System.out.println("Running: v_carrinho");
 	}
 
@@ -65,19 +60,19 @@ public class FinalizarCompraTest extends ExecutionContext implements
 
 	@Override
 	public void v_dadosPagamento() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina09.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina09.html");
 		System.out.println("Running: v_dadosPagamento");
 	}
 
 	@Override
 	public void v_CompraFinalizada() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina10.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina10.html");
 		System.out.println("Running: v_CompraFinalizada");
 	}
 
 	@Override
 	public void e_retomaCarrinho() {
-		driver.get("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina05.html");
+		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina05.html");
 		System.out.println("Running: e_retomaCarrinho");
 	}
 
