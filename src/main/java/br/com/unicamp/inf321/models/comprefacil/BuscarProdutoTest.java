@@ -58,7 +58,7 @@ public class BuscarProdutoTest extends ExecutionContext implements
 	@Override
 	public void v_ExibicaoResultadoBusca() {
 		WebDriveUtils.openURL("http://www.students.ic.unicamp.br/~espsoft75/cfacil/Pagina04.html");
-		System.out.println("v_MostrarDetalhes");
+		System.out.println("v_ExibicaoResultadoBusca");
 
 	}
 
