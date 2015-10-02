@@ -1,8 +1,6 @@
 package br.com.unicamp.inf321.models.comprefacil;
 
 import org.graphwalker.core.machine.ExecutionContext;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import br.com.unicamp.inf321.AdicionarProdutoCarrinhoSHARED;
 import br.com.unicamp.inf321.utils.WebDriveUtils;

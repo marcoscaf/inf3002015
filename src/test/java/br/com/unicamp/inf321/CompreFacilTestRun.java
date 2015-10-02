@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.assertj.core.api.Assertions;
 import org.graphstream.graph.Graph;
-import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.stream.file.FileSinkImages;
 import org.graphstream.stream.file.FileSinkImages.LayoutPolicy;
 import org.graphstream.stream.file.FileSinkImages.OutputType;
@@ -51,7 +51,8 @@ public class CompreFacilTestRun {
 	@Before
 	public void beforeTest() {
 		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-		graph = new SingleGraph("GraphWalker");
+		graph = new MultiGraph("GraphWalker");
+		
 		graph.display(true);
 		observer = new GraphStreamObserver(graph);
 	}
@@ -73,10 +74,10 @@ public class CompreFacilTestRun {
 	@Test
 	public void runFunctionalTest() {
 		Result result = new GraphWalkerTestBuilder()
-				.addModel(MODEL_PATH_1, new BuscarProdutoTest().setPathGenerator(new RandomPath(new EdgeCoverage(100))))
-				.addModel(MODEL_PATH_2, new AdicionarProdutoCarrinhoTest().setPathGenerator(new RandomPath(new EdgeCoverage(100))))
-				.addModel(MODEL_PATH_3, new FinalizarCompraTest().setPathGenerator(new RandomPath(new EdgeCoverage(100))))
-				.addModel(MODEL_PATH_4, new RemoveProdutoTest().setPathGenerator(new RandomPath(new EdgeCoverage(100))))
+				.addModel(MODEL_PATH_1, new BuscarProdutoTest().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
+				.addModel(MODEL_PATH_2, new AdicionarProdutoCarrinhoTest().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
+				.addModel(MODEL_PATH_3, new FinalizarCompraTest().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
+				.addModel(MODEL_PATH_4, new RemoveProdutoTest().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
 				.addModel(MODEL_PATH_5, new EfetuarPagamentoTest().setPathGenerator(new RandomPath(new EdgeCoverage(1))))
 				.addObserver(observer).execute(true);
 		Assertions.assertThat(result.getErrors()).as("Errors: [" + result.getErrors().toString() + "]").isNullOrEmpty();
@@ -85,11 +86,11 @@ public class CompreFacilTestRun {
 	@Test
 	public void runStabilityTest() {
 		Result result = new GraphWalkerTestBuilder()
-				.addModel(MODEL_PATH_1,new BuscarProdutoTest().setPathGenerator(new RandomPath(new TimeDuration(5, TimeUnit.SECONDS))))
-				.addModel(MODEL_PATH_2,new AdicionarProdutoCarrinhoTest().setPathGenerator(new RandomPath(new TimeDuration(5, TimeUnit.SECONDS))))
-				.addModel(MODEL_PATH_3,new FinalizarCompraTest().setPathGenerator(new RandomPath(new TimeDuration(5, TimeUnit.SECONDS))))
-				.addModel(MODEL_PATH_4,new RemoveProdutoTest().setPathGenerator(new RandomPath(new TimeDuration(5, TimeUnit.SECONDS))))
-				.addModel(MODEL_PATH_5,new EfetuarPagamentoTest().setPathGenerator(new RandomPath(new TimeDuration(5, TimeUnit.SECONDS))))
+				.addModel(MODEL_PATH_1,new BuscarProdutoTest().setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS))))
+				.addModel(MODEL_PATH_2,new AdicionarProdutoCarrinhoTest().setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS))))
+				.addModel(MODEL_PATH_3,new FinalizarCompraTest().setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS))))
+				.addModel(MODEL_PATH_4,new RemoveProdutoTest().setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS))))
+				.addModel(MODEL_PATH_5,new EfetuarPagamentoTest().setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS))))
 				.addObserver(observer).execute(true);
 		Assertions.assertThat(result.getErrors()).as("Errors: [" + result.getErrors().toString() + "]").isNullOrEmpty();
 	}
